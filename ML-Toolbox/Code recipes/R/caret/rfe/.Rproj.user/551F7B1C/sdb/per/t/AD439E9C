@@ -1,0 +1,20 @@
+{
+    "collab_server" : "",
+    "contents" : "#caret model - Automatic Tuning Grid\n#http://topepo.github.io/caret/bytag.html\n#model training: http://topepo.github.io/caret/training.html\n#model measurement: http://topepo.github.io/caret/other.html\n#dataframe = WholeYear\n#Y Value = SolarRad\n\n#load library and set seed\nlibrary(caret)\nset.seed(998)\n\n#create a 20% sample of the data\nWholeYear <- WholeYear[sample(1:nrow(WholeYear), 7000,replace=FALSE),]\n\n# define an 75%/25% train/test split of the dataset\ninTraining <- createDataPartition(cleaned_votes$party, p = .75, list = FALSE)\ntraining <- cleaned_votes[inTraining,]\ntesting <- cleaned_votes[-inTraining,]\n\n#10 fold cross validation\nfitControl <- trainControl(method = \"repeatedcv\", number = 10, repeats = 1)\n\n#train Random Forest Regression model with a tuneLenght = 1 (trains with 1 mtry value for RandomForest)\nknnFit1 <- train(party~., data = training, method = \"knn\", trControl=fitControl)\n\n#training results\nrfFit1",
+    "created" : 1517243186165.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "3963322921",
+    "id" : "AD439E9C",
+    "lastKnownWriteTime" : 1517411111,
+    "last_content_update" : 1517411111106,
+    "path" : "~/ML Toolbox/R Scripts/caret/Automatic Tuning Grid.r",
+    "project_path" : null,
+    "properties" : {
+    },
+    "relative_order" : 4,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

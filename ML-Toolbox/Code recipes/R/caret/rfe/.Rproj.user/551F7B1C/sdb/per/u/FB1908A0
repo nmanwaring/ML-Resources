@@ -1,0 +1,21 @@
+{
+    "collab_server" : "",
+    "contents" : "library(readr)\nvotes <- read_csv(\"~/ML Toolbox/R Scripts/caret/rfe/house-votes-84.csv\")\nView(votes)\nvotes[votes == '?'] <- NA\nis.na(votes)\ncleaned_votes <- na.omit(votes)\nView(cleaned_votes)\ncleaned_votes$allifiliation<-cleaned_votes$party\nrename?\nlibrary(readr)\nhouse_votes_84 <- read_csv(\"~/ML Toolbox/R Scripts/caret/rfe/house-votes-84.csv\")\nView(house_votes_84)\ncleaned_votes <- na.omit(house_votes_84)\nView(cleaned_votes)\nlibrary(caret)\nset.seed(998)\ninTraining <- createDataPartition(cleaned_votes$party, p = .75, list = FALSE)\ntraining <- cleaned_votes[inTraining,]\ntesting <- cleaned_votes[-inTraining,]\ncontrol <- trainControl(method=\"repeatedcv\", number=10, repeats=1)\nmodel <- train(party~., data=training, method=\"lvq\",trControl=control)\nimportance <- varImp(model, scale=FALSE)\nvotes[house_votes_84 == '?'] <- NA\ncleaned_votes <- na.omit(house_votes_84)\ninTraining <- createDataPartition(cleaned_votes$party, p = .75, list = FALSE)\ntraining <- cleaned_votes[inTraining,]\ntesting <- cleaned_votes[-inTraining,]\ncontrol <- trainControl(method=\"repeatedcv\", number=10, repeats=1)\nmodel <- train(party~., data=training, method=\"lvq\",trControl=control)\nimportance <- varImp(model, scale=FALSE)\nvotes[house_votes_84 == '?'] <- NA\nView(house_votes_84)\nhouse_votes_84[house_votes_84 == '?'] <- NA\ncleaned_votes <- na.omit(house_votes_84)\nView(cleaned_votes)\nlibrary(caret)\nset.seed(998)\ninTraining <- createDataPartition(cleaned_votes$party, p = .75, list = FALSE)\ntraining <- cleaned_votes[inTraining,]\ntesting <- cleaned_votes[-inTraining,]\ncontrol <- trainControl(method=\"repeatedcv\", number=10, repeats=1)\nmodel <- train(party~., data=training, method=\"lvq\",trControl=control)\nimportance <- varImp(model, scale=FALSE)\ncontrol <- rfeControl(functions=rfFuncs, method=\"cv\", number=10)\nresults <- rfe(cleaned_votes[,1:16], cleaned_votes[,17], sizes=c(1:16), rfeControl=control)\nclean_votes_features<-cleaned_votes[1:16]\nView(clean_votes_features)\nclean_votes_dep_var<-cleaned_votes[,:17]\nclean_votes_dep_var<-cleaned_votes[:17]\nclean_votes_dep_var<-cleaned_votes[,17]\nView(clean_votes_dep_var)\nclean_votes_dep_var<-as.matrix(cleaned_votes[,17])\nclean_votes_features<-cleaned_votes[2:17]\nclean_votes_dep_var<-as.matrix(cleaned_votes[,1])\nView(clean_votes_dep_var)\nclean_votes_dep_var<-as.factor(clean_votes_dep_var$party)\nclean_votes_dep_var<-as.data.frame(cleaned_votes[,1])\nView(clean_votes_dep_var)\nsummary(clean_votes_dep_var)\nclean_votes_dep_var$party<-as.factor(clean_votes_dep_var$party)\nresults <- rfe(clean_votes_features, clean_votes_dep_var, sizes=c(1:16), rfeControl=control)\nresults <- rfe(clean_votes_features, clean_votes_dep_var, sizes=c(2:17), rfeControl=control)\nresults <- rfe(clean_votes_features[1:16], clean_votes_dep_var[1], sizes=c(1:16), rfeControl=control)\nView(clean_votes_dep_var)\nView(clean_votes_features)\nView(house_votes_84)\nlibrary(caret)\nset.seed(998)\ninTraining <- createDataPartition(cleaned_votes$party, p = .75, list = FALSE)\ntraining <- cleaned_votes[inTraining,]\ntesting <- cleaned_votes[-inTraining,]\nfitControl <- trainControl(method = \"repeatedcv\", number = 10, repeats = 1)\nknnFit1 <- train(party~., data = training, method = \"knn\", trControl=fitControl, tuneLength = 1)\nknnFit1\nknnFit1 <- train(party~., data = training, method = \"knn\", trControl=fitControl, tunelength = 1)\nknnFit1 <- train(party~., data = training, method = \"knn\", trControl=fitControl)\n",
+    "created" : 1517367015302.000,
+    "dirty" : true,
+    "encoding" : "",
+    "folds" : "",
+    "hash" : "1178263216",
+    "id" : "FB1908A0",
+    "lastKnownWriteTime" : 3419473789575321445,
+    "last_content_update" : 1517367031280,
+    "path" : null,
+    "project_path" : null,
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 9,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

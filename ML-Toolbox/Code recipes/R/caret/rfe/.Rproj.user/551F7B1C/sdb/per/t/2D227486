@@ -1,0 +1,29 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1517243370000.000,
+    "dirty" : false,
+    "encoding" : "",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "2D227486",
+    "lastKnownWriteTime" : 8245937412990856303,
+    "last_content_update" : 1517243370000,
+    "path" : null,
+    "project_path" : null,
+    "properties" : {
+        "cacheKey" : "3C77B44F",
+        "caption" : "house_votes_84",
+        "contentUrl" : "grid_resource/gridviewer.html?env=&obj=house_votes_84&cache_key=3C77B44F",
+        "displayedObservations" : "435",
+        "environment" : "",
+        "object" : "house_votes_84",
+        "preview" : "0",
+        "totalObservations" : "435",
+        "variables" : "17"
+    },
+    "relative_order" : 5,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_dataframe"
+}

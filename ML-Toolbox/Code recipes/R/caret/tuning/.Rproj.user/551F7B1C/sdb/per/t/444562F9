@@ -1,0 +1,21 @@
+{
+    "collab_server" : "",
+    "contents" : "#load library and set seed\nlibrary(caret)\nset.seed(998)\n\n# define an 75%/25% train/test split of the dataset\ninTraining <- createDataPartition(iris$Species, p = .75, list = FALSE)\ntraining <- iris[inTraining,]\ntesting <- iris[-inTraining,]\n\n#10 fold cross validation\nfitControl <- trainControl(method = \"repeatedcv\", number = 10, repeats = 1)\n\nsystem.time(\n  rfFit1 <- train(Species~., data = training, method = \"rf\", trControl=fitControl)\n)\n\n#training results\nrfFit1",
+    "created" : 1517089196876.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "510429756",
+    "id" : "444562F9",
+    "lastKnownWriteTime" : 1517090221,
+    "last_content_update" : 1517090221,
+    "path" : "~/ML Toolbox/R Scripts/caret/caret.R",
+    "project_path" : null,
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 3,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

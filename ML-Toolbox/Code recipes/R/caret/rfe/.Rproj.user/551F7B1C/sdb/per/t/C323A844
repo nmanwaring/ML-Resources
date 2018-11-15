@@ -1,0 +1,21 @@
+{
+    "collab_server" : "",
+    "contents" : "library(readr)\nvotes <- read_csv(\"~/ML Toolbox/R Scripts/caret/rfe/house-votes-84.csv\")\nView(votes)\nhouse_votes_84[rev_house_votes_84 == '?'] <- NA\nis.na(votes)\ncleaned_votes <- na.omit(house_votes_84)\nView(cleaned_votes)\n\n#load library and set seed\nlibrary(caret)\nset.seed(998)\n\n# define an 75%/25% train/test split of the dataset\ninTraining <- createDataPartition(cleaned_votes$party, p = .75, list = FALSE)\ntraining <- cleaned_votes[inTraining,]\ntesting <- cleaned_votes[-inTraining,]\n\n# define the control using a random forest selection function\ncontrol <- rfeControl(functions=rfFuncs, method=\"cv\", number=10)\n# run the RFE algorithm\nresults <- rfe(clean_votes_features[1:16], clean_votes_dep_var[1], sizes=c(1:16), rfeControl=control)\n# summarize the results\nprint(results)\n# list the chosen features\npredictors(results)\n# plot the results\nplot(results, type=c(\"g\", \"o\"))",
+    "created" : 1517243024911.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "2797681038",
+    "id" : "C323A844",
+    "lastKnownWriteTime" : 1517411111,
+    "last_content_update" : 1517411111045,
+    "path" : "~/ML Toolbox/R Scripts/caret/rfe/rfe.r",
+    "project_path" : "rfe.r",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 3,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}
